@@ -1,6 +1,7 @@
 # shopping_cart
 
 A new Flutter project.
+![Capture](https://github.com/mudakkirafridi/Simple-Ecommerce-App/assets/139226585/3865200f-b78a-4926-bac0-de69622e1638)
 
 ## Getting Started
 
