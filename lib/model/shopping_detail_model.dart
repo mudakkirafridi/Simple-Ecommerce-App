@@ -8,7 +8,7 @@ class CartModel {
   final String? unitTag;
   final String? image;
 
-  CartModel({
+  CartModel(
     this.id,
     this.productId,
     this.productName,
@@ -17,7 +17,7 @@ class CartModel {
     this.quantity,
     this.unitTag,
     this.image,
-  });
+  );
   CartModel.fromMap(Map<String, dynamic> res)
       : id = res['id'],
         productId = res['productId'],

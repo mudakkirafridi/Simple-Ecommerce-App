@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:provider/provider.dart';
+import 'package:shopping_cart/model/cart_provider.dart';
+import 'package:shopping_cart/model/db_helper.dart';
+import 'package:shopping_cart/model/shopping_detail_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -33,8 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
     "https://thumbs.dreamstime.com/b/lemon-whole-half-cut-fruits-isolated-white-transparent-png-additional-format-lemon-whole-half-cut-fruits-isolated-279257426.jpg",
     "https://articles-1mg.gumlet.io/articles/wp-content/uploads/2017/10/rsz_shutterstock_656937502.jpg?compress=true&quality=80&w=640&dpr=2.6"
   ];
+  DBhelper dBhelper = DBhelper();
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple[100],
@@ -96,23 +102,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                   )),
                               Align(
                                   alignment: Alignment.bottomRight,
-                                  child: Container(
-                                    height: 30,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                        boxShadow: const [
-                                          BoxShadow(
-                                            color: Colors.black,
-                                            blurRadius: 5,
-                                          )
-                                        ],
-                                        color: Colors.deepPurple,
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    child: const Center(
-                                      child: Text(
-                                        'Add',
-                                        style: TextStyle(color: Colors.white),
+                                  child: InkWell(
+                                    onTap: () {},
+                                    child: Container(
+                                      height: 30,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              color: Colors.black,
+                                              blurRadius: 5,
+                                            )
+                                          ],
+                                          color: Colors.deepPurple,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      child: const Center(
+                                        child: Text(
+                                          'Add',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
                                       ),
                                     ),
                                   ))
