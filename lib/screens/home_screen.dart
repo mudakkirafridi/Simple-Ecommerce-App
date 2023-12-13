@@ -38,7 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple[100],
-        title: const Text('MStore Products'),
+        title: const Text(
+          'MStore Products',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+        ),
         centerTitle: true,
       ),
       body: Padding(
