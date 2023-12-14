@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shopping_cart/model/cart_provider.dart';
 import 'package:shopping_cart/model/db_helper.dart';
 import 'package:shopping_cart/model/shopping_detail_model.dart';
+import 'package:shopping_cart/screens/cart_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -157,7 +158,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const CartScreen()));
+        },
         child: badges.Badge(
           badgeContent:
               Consumer<CartProvider>(builder: (context, value, index) {

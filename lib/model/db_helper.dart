@@ -35,4 +35,16 @@ CREATE TABLE cart (id INTEGER PRIMARY KEY, productId VARCHAR UNIQUE, productName
     await dbClient!.insert('cart', cartModel.toMap());
     return cartModel;
   }
+
+  Future<List<CartModel>> getCartList() async {
+    var dbClient = await db;
+    final List<Map<String, Object?>> queryResult =
+        await dbClient!.query('cart');
+    return queryResult.map((e) => CartModel.fromMap(e)).toList();
+  }
+
+  Future<int> delete(int id) async {
+    var dbclient = await db;
+    return await dbclient!.delete('cart', where: 'id = ?', whereArgs: [id]);
+  }
 }
