@@ -13,6 +13,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<int> productPrice = [300, 400, 200, 100, 260, 789, 345, 23, 567, 90];
+  List<String> productUnit = [
+    "Dozen",
+    'KG',
+    "KG",
+    "KG",
+    "KG",
+    'KG',
+    "KG",
+    'KG',
+    "KG",
+    "KG"
+  ];
   List<String> fruitNames = [
     'Banana',
     'Mango',
@@ -93,17 +106,48 @@ class _HomeScreenState extends State<HomeScreen> {
                                 style: const TextStyle(
                                     fontWeight: FontWeight.w800, fontSize: 20),
                               ),
-                              const Align(
+                              Align(
                                   alignment: Alignment.bottomLeft,
-                                  child: Text(
-                                    'KG PKR: 90',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w900),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        productUnit[index].toString(),
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w800),
+                                      ),
+                                      Text(
+                                        productPrice[index].toString(),
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w800),
+                                      )
+                                    ],
                                   )),
                               Align(
                                   alignment: Alignment.bottomRight,
                                   child: InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      dBhelper!
+                                          .insert(CartModel(
+                                              index,
+                                              index.toString(),
+                                              fruitNames[index].toString(),
+                                              productPrice[index],
+                                              productPrice[index],
+                                              1,
+                                              productUnit[index].toString(),
+                                              images[index].toString()))
+                                          .then((value) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                content:
+                                                    Text(value.toString())));
+                                      }).onError((error, stackTrace) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                content:
+                                                    Text(error.toString())));
+                                      });
+                                    },
                                     child: Container(
                                       height: 30,
                                       width: 50,
