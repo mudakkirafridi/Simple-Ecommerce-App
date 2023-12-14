@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 )
                               ],
                             ),
-                            Spacer(),
+                            const Spacer(),
                             InkWell(
                               onTap: () {
                                 dBhelper!
@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         images[index].toString()))
                                     .then((value) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                           content: Text('Your Item Added')));
                                   cart.addTotalPrice(double.parse(
                                       productPrice[index].toString()));
