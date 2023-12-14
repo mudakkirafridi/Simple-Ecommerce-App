@@ -2,6 +2,9 @@
 
 A new Flutter project.
 ![Capture](https://github.com/mudakkirafridi/Simple-Ecommerce-App/assets/139226585/3865200f-b78a-4926-bac0-de69622e1638)
+i change the design of this e commrece app
+![Capture](https://github.com/mudakkirafridi/Simple-Ecommerce-App/assets/139226585/181ce1ba-1aea-40c1-9470-282a6de79a98)
+
 
 ## Getting Started
 
