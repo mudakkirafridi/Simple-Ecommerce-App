@@ -18,7 +18,7 @@ class CartModel {
     this.unitTag,
     this.image,
   );
-  CartModel.fromMap(Map<String, dynamic> res)
+  CartModel.fromMap(Map<dynamic, dynamic> res)
       : id = res['id'],
         productId = res['productId'],
         productName = res['productName'],
